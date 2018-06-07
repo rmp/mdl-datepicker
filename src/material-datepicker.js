@@ -22,9 +22,10 @@
     MaterialDatepicker.prototype.init = function()
     {
         if (this.element_) {
+	    var elLocale = this.element_.getAttribute('data-locale'); // support data-locale attribute to override browser language?
             this.datepicker_ = new epepite.DatePicker.DatePicker({
                 'input'  : this.element_,
-                'locale' : navigator.language ? navigator.language : 'fr'
+                'locale' : elLocale || navigator.language ? navigator.language : 'en'
             });
 
             this.datepicker_.on(epepite.DatePicker.CONSTANTS.DATEPICKER_EVENT, this.onSelectedDate.bind(this));
@@ -45,7 +46,8 @@
 
     MaterialDatepicker.prototype.findTextfield = function()
     {
-        if (this.element_.classList.contains(this.CssClasses_.TEXTFIELD_INPUT)) {
+        if (Array.isArray(this.element_.classList)
+	    && this.element_.classList.contains(this.CssClasses_.TEXTFIELD_INPUT)) {
             for (var target = this.element_.parentNode; target && target != this.element_; target = target.parentNode) {
                 if (target.classList.contains(this.CssClasses_.TEXTFIELD)) {
                     return target;

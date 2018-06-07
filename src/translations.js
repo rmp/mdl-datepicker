@@ -47,6 +47,14 @@
     {
         locale = locale || this.locale;
 
+	var majorLocale = locale.split("-")[0];
+	if(typeof this.translations[locale] != "object"
+	   && majorLocale != locale
+	   && typeof this.translations[majorLocale] == "object") {
+	    // if (for example) en-GB not found, try en
+	    locale = majorLocale;
+	}
+
         if (typeof this.translations[locale] == "object") {
             var translate = '';
 
@@ -78,7 +86,9 @@
             }
 
             return translate;
-        }
+        } else {
+	    console.error("no translator found for", locale);
+	}
 
         return message;
     };

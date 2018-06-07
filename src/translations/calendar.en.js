@@ -24,7 +24,7 @@
         'days' : [
             'Sunday',
             'Monday',
-            'Thuesday',
+            'Tuesday',
             'Wednesday',
             'Thursday',
             'Friday',
@@ -32,17 +32,17 @@
         ],
         'months': [
             'January',
-             'February',
-             'March',
-             'April',
-             'May',
-             'June',
-             'July',
-             'August',
-             'September',
-             'October',
-             'November',
-             'December'
+	    'February',
+	    'March',
+	    'April',
+	    'May',
+	    'June',
+	    'July',
+	    'August',
+	    'September',
+	    'October',
+	    'November',
+	    'December'
         ]
     };
 
