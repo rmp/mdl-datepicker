@@ -50,10 +50,9 @@
 
         this.cursorDate = new Date(this.date.getTime());
         this.container  = (typeof this.config.container == "string") ? document.querySelector(this.config.container) : this.config.container;
-        this.templating = templating || new epepite.DatePicker.Template();
         this.translator = translator || new epepite.DatePicker.Translator();
-
         this.translator.setCurrentLocale(this.config.locale);
+        this.templating = templating || new epepite.DatePicker.Template(this.translator);
 
         if (!this.container) {
             throw "Not found withouth datepicker container element \""+ this.config.container +"\"";

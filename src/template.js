@@ -9,7 +9,9 @@
         epepite.DatePicker = {};
     }
 
-    epepite.DatePicker.Template = function() {};
+    epepite.DatePicker.Template = function(translator) {
+	this.translator = translator;
+    };
 
     epepite.DatePicker.Template.prototype.load = function(name)
     {
@@ -28,6 +30,12 @@
             }
         }
 
+	if(this.translator) {
+            for (var key in [0,1,2,3,4,5,6]) {
+		var pattern = new RegExp('%DAY_' + key + '%', 'g');
+		template = template.replace(pattern, this.translator.trans('days')[key].substr(0,1));
+            }
+	}
         return template;
     };
 
