@@ -128,10 +128,6 @@
         var currentDate = null;
 
         if (this.input.value) {
-	    var elFormat=this.input.getAttribute('data-format');
-	    if(elFormat) {
-		this.config.format = elFormat;
-	    }
             var dateMoment = moment(this.input.value, this.config.format);
             currentDate = dateMoment.isValid() ? dateMoment.toDate() : new Date();
         } else {
