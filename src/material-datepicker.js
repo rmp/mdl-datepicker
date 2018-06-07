@@ -23,7 +23,7 @@
     {
         if (this.element_) {
 	    var elLocale = this.element_.getAttribute('data-locale'); // support data-locale attribute to override browser language?
-	    var elFormat = this.input.getAttribute('data-format');
+	    var elFormat = this.element_.getAttribute('data-format');
 
             this.datepicker_ = new epepite.DatePicker.DatePicker({
                 'input'  : this.element_,
