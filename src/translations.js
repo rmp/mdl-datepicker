@@ -48,7 +48,8 @@
         locale = locale || this.locale;
 
 	var majorLocale = locale.split("-")[0];
-	locale          = [locale, majorLocale, 'en'].find(function (o) { this.translations[o] == "object"; });
+	var that        = this;
+	locale          = [locale, majorLocale, 'en'].find(function (o) { that.translations[o] == "object"; });
 
         if (typeof this.translations[locale] == "object") {
             var translate = '';
