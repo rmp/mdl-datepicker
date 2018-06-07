@@ -49,7 +49,7 @@
 
 	var majorLocale = locale.split("-")[0];
 	var that        = this;
-	locale          = [locale, majorLocale, 'en'].find(function (o) { that.translations[o] == "object"; });
+	locale          = [locale, majorLocale, 'en'].find(function (o) { return typeof that.translations[o] == "object"; });
 
         if (typeof this.translations[locale] == "object") {
             var translate = '';
